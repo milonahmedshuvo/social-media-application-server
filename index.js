@@ -36,6 +36,24 @@ async function run(){
         const result=await addPostCollection.find(filter).toArray()
         res.send(result)
      })
+
+     app.get('/singlePost/:id', async(req, res)=>{
+        const id=req.params.id;
+        const filter={_id:ObjectId(id)}
+        const result=await addPostCollection.findOne(filter)
+        res.send(result)
+     })
+
+
+
+
+
+
+
+
+
+
+
      
 
      app.post('/myDetails', async(req, res)=>{
@@ -98,6 +116,20 @@ async function run(){
 
 
 
+
+
+
+
+
+
+
+
+
+    app.get('/shoting', async (req, res)=>{
+      const filter={}
+      const result=await addPostCollection.find(filter).sort({love:-1}).limit(3).toArray()
+      res.send(result)
+    })
 
 
 
